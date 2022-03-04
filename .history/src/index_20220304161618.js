@@ -17,9 +17,7 @@ app.use(bodyParser.json())  // THIS MUST BE ABOVE ROUTES : bodyParser needs to p
                             //-information our of the request, before passing to authRoutes
 
 //app.use(express.static(path.join(__dirname, '../../Client/')));
-if (process.env.NODE_ENV === 'production') {
-	app.use(express.static('src'));
-}
+app.use(express.static(path.join(__dirname, './node_modules/')));
 
 app.use(authRoutes);    // Allow the app to use authRoutes
 app.use(trackRoutes);   // Allow the app to use trackRoutes
